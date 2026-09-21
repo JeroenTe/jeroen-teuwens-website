@@ -1082,22 +1082,35 @@
   const successPanel = document.getElementById('successPanel');
   const submitBtn = form.querySelector('button[type="submit"]');
   const submitBtnDefaultText = submitBtn.textContent;
+  const fieldLabels = { vorname:'Vorname', nachname:'Nachname', telefon:'Telefon', email:'E-Mail-Adresse', consent:'Zustimmung zur Datenverarbeitung' };
+
   let formError = document.getElementById('formError');
   if(!formError){
     formError = document.createElement('p');
     formError.id = 'formError';
     formError.hidden = true;
-    formError.style.cssText = 'color:var(--accent-strong);font-size:.85rem;margin-top:12px;text-align:center;';
-    formError.textContent = 'Da ist etwas schiefgelaufen. Bitte versucht es noch einmal oder ruft direkt an.';
+    formError.style.cssText = 'color:var(--accent-strong);font-size:.9rem;font-weight:600;margin-top:12px;text-align:center;';
     form.appendChild(formError);
+  }
+
+  function showError(text){
+    formError.textContent = text;
+    formError.hidden = false;
+    formError.scrollIntoView({behavior:'smooth', block:'center'});
   }
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
-    if(!form.checkValidity()){
-      form.reportValidity();
+
+    const invalidField = Array.from(form.elements).find(el => el.willValidate && !el.checkValidity());
+    if(invalidField){
+      const label = fieldLabels[invalidField.name] || 'ein Pflichtfeld';
+      showError('Bitte prüfe: „' + label + '" fehlt oder ist ungültig.');
+      invalidField.focus();
+      try{ form.reportValidity(); } catch(_){}
       return;
     }
+
     formError.hidden = true;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Wird gesendet …';
@@ -1107,13 +1120,13 @@
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-      if(!response.ok){ throw new Error('Formspree request failed'); }
+      if(!response.ok){ throw new Error('Formspree request failed: ' + response.status); }
       if(typeof fbq === 'function'){ fbq('track', 'Lead'); }
       form.hidden = true;
       successPanel.hidden = false;
       successPanel.scrollIntoView({behavior:'smooth', block:'center'});
     } catch(err){
-      formError.hidden = false;
+      showError('Da ist etwas schiefgelaufen. Bitte versucht es noch einmal oder ruft direkt an: 0163 8147627.');
       submitBtn.disabled = false;
       submitBtn.textContent = submitBtnDefaultText;
     }
