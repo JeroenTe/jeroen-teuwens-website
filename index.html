@@ -231,7 +231,7 @@
   .input-suffix input{border:none;background:transparent;width:90px;padding:10px 4px 10px 12px;font:inherit;color:var(--ink);font-variant-numeric:tabular-nums;}
   .input-suffix input:focus{outline:none;}
   .input-suffix span{padding-right:12px;color:var(--ink-soft);font-size:.9rem;}
-  .invest-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;}
+  .invest-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px;}
   @media (max-width:640px){ .invest-results{grid-template-columns:1fr;} }
   .invest-result-tile{
     background:var(--surface);border:1px solid var(--border);border-radius:12px;
@@ -241,6 +241,14 @@
   .invest-result-tile b{font-family:"IBM Plex Mono",monospace;font-size:1.35rem;color:var(--ink);}
   .invest-result-tile.is-gain{background:var(--accent-soft);border-color:transparent;}
   .invest-result-tile.is-gain b{color:var(--accent-strong);}
+  .invest-result-tile.is-subsidy{background:#fff4d6;border-color:transparent;}
+  .invest-result-tile.is-subsidy b{color:#8a5a00;}
+  .subsidy-toggle{
+    display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.85rem;color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .subsidy-toggle input{margin-top:3px;width:16px;height:16px;flex:none;accent-color:var(--accent-strong);}
+  .subsidy-toggle i{font-style:normal;color:var(--ink-soft);opacity:.8;}
   .compare-label{font-size:.88rem;color:var(--ink-soft);margin-top:26px;}
   .compare-bars{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
   .compare-bar-row{display:grid;grid-template-columns:110px 1fr 96px;align-items:center;gap:12px;}
@@ -628,6 +636,11 @@
           </div>
         </div>
 
+        <label class="subsidy-toggle">
+          <input type="checkbox" id="subsidyToggle">
+          <span>Frühstart-Rente einschließen <i>(10 €/Monat vom 6. bis zum 18. Lebensjahr ins Altersvorsorgedepot, ab 2027)</i></span>
+        </label>
+
         <div class="invest-results">
           <div class="invest-result-tile">
             <span>Eingezahlt bis 18</span>
@@ -640,6 +653,10 @@
           <div class="invest-result-tile is-gain">
             <span>Gewinn</span>
             <b id="investGain" class="tabular">0 €</b>
+          </div>
+          <div class="invest-result-tile is-subsidy" id="investExtraTile" hidden>
+            <span>Gewinn + staatliche Förderung</span>
+            <b id="investExtra" class="tabular">0 €</b>
           </div>
         </div>
 
@@ -997,9 +1014,15 @@
   // Sparplan-Beispielrechnung
   const rateInput = document.getElementById('rateInput');
   const returnInput = document.getElementById('returnInput');
+  const subsidyToggle = document.getElementById('subsidyToggle');
   const investInvested = document.getElementById('investInvested');
   const investResult = document.getElementById('investResult');
   const investGain = document.getElementById('investGain');
+  const investExtraTile = document.getElementById('investExtraTile');
+  const investExtra = document.getElementById('investExtra');
+  const SUBSIDY_MONTHLY = 10;
+  const SUBSIDY_FROM_AGE = 6;
+  const SUBSIDY_TO_AGE = 18;
   const compareBars = document.getElementById('compareBars');
   const fmtEUR = (n) => Math.round(n).toLocaleString('de-DE') + ' €';
 
@@ -1040,24 +1063,49 @@
     return monthlyRate * ((Math.pow(1 + r, months) - 1) / r);
   }
 
+  // Simuliert einen Sparplan Monat für Monat, optional mit staatlicher Förderung
+  // (10 €/Monat vom 6. bis zum 18. Lebensjahr), damit das genaue Alter je Monat
+  // berücksichtigt werden kann statt nur einer konstanten Rate.
+  function simulatePlan(startAgeMonths, months, monthlyOwnRate, annualReturnPct, includeSubsidy){
+    const r = Math.pow(1 + annualReturnPct / 100, 1/12) - 1;
+    let value = 0, invested = 0, subsidyTotal = 0;
+    for(let i = 0; i < months; i++){
+      const ageYears = (startAgeMonths + i) / 12;
+      let contribution = monthlyOwnRate;
+      invested += monthlyOwnRate;
+      if(includeSubsidy && ageYears >= SUBSIDY_FROM_AGE && ageYears < SUBSIDY_TO_AGE){
+        contribution += SUBSIDY_MONTHLY;
+        subsidyTotal += SUBSIDY_MONTHLY;
+      }
+      value = value * (1 + r) + contribution;
+    }
+    return { value, invested, subsidyTotal };
+  }
+
   function updateInvest(){
     const age = parseInt(slider.value, 10);
     const rate = Math.max(0, parseFloat(rateInput.value) || 0);
     const ret = Math.max(0, parseFloat(returnInput.value) || 0);
     const monthsLeft = TOTAL_MONTHS - age * 12;
+    const includeSubsidy = subsidyToggle.checked;
 
-    const invested = rate * monthsLeft;
-    const value = futureValue(rate, ret, monthsLeft);
-    const gain = Math.max(0, value - invested);
+    const sim = simulatePlan(age * 12, monthsLeft, rate, ret, includeSubsidy);
+    const invested = sim.invested;
+    const value = sim.value;
+    const gain = Math.max(0, value - invested - sim.subsidyTotal);
     investInvested.textContent = fmtEUR(invested);
     investResult.textContent = fmtEUR(value);
     investGain.textContent = fmtEUR(gain);
+    investExtraTile.hidden = !includeSubsidy;
+    if(includeSubsidy){
+      investExtra.textContent = fmtEUR(gain + sim.subsidyTotal);
+    }
     updateMilestones(value);
 
     const refAges = Array.from(new Set([0, 5, 10, 15, age])).sort((a, b) => a - b);
     const rows = refAges.map(a => ({
       age: a,
-      value: futureValue(rate, ret, TOTAL_MONTHS - a * 12)
+      value: simulatePlan(a * 12, TOTAL_MONTHS - a * 12, rate, ret, includeSubsidy).value
     }));
     const maxValue = Math.max(...rows.map(r => r.value), 1);
 
@@ -1073,6 +1121,7 @@
   }
   rateInput.addEventListener('input', updateInvest);
   returnInput.addEventListener('input', updateInvest);
+  subsidyToggle.addEventListener('change', updateInvest);
 
   updateCalc();
   updateInvest();
