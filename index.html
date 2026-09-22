@@ -280,6 +280,52 @@
   .parent-hint-title{font-weight:700;color:var(--ink);font-size:.92rem;margin-bottom:6px;}
   .parent-hint p{color:var(--ink-soft);font-size:.86rem;line-height:1.5;}
   .parent-hint .btn{margin-top:14px;}
+  .parent-hint .calc-note{text-align:left;margin-top:10px;}
+
+  .pension-problem-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  @media (max-width:760px){ .pension-problem-stats{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .pension-problem-stats{grid-template-columns:1fr;} }
+  .pension-stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-align:center;}
+  .pension-stat b{display:block;font-family:"IBM Plex Mono",monospace;font-size:1.5rem;color:var(--accent-strong);}
+  .pension-stat span{display:block;margin-top:6px;font-size:.8rem;color:var(--ink-soft);line-height:1.4;}
+  .pension-stat-gender .gender-pair{display:flex;justify-content:center;gap:18px;}
+  .pension-stat-gender .gender-pair b{font-family:"IBM Plex Mono",monospace;font-size:1.3rem;color:var(--accent-strong);display:block;}
+  .pension-stat-gender .gender-label{display:block;margin-top:2px;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;}
+  .pension-hard-fact{
+    background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-weight:600;color:var(--ink);
+  }
+  .pension-hard-fact b{color:var(--accent-strong);}
+
+  .pension-breakdown{margin-top:22px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;}
+  .pension-breakdown-title{font-weight:700;color:var(--ink);font-size:.92rem;margin-bottom:14px;text-align:center;}
+  .pension-breakdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media (max-width:560px){ .pension-breakdown-grid{grid-template-columns:1fr;gap:20px;} }
+  .pension-breakdown-label{display:block;font-weight:700;font-size:.85rem;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em;}
+  .pension-breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:.84rem;color:var(--ink-soft);border-bottom:1px dashed var(--border);}
+  .pension-breakdown-row b{font-family:"IBM Plex Mono",monospace;color:var(--ink);font-weight:600;}
+  .pension-breakdown-row.is-minus b{color:var(--accent-strong);}
+  .pension-breakdown-row.is-total{border-bottom:none;border-top:1.5px solid var(--ink);margin-top:4px;padding-top:8px;}
+  .pension-breakdown-row.is-total span{font-weight:700;color:var(--ink);}
+  .pension-breakdown-row.is-total b{font-size:1.05rem;color:var(--accent-strong);}
+  .pension-breakdown .calc-note{margin-top:16px;}
+
+  .kids-zulage{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .kids-zulage-label{font-size:.86rem;font-weight:700;color:var(--ink);}
+  .kids-zulage-options{display:flex;gap:8px;}
+  .kids-btn{
+    width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);
+    background:var(--surface);color:var(--ink);font-weight:700;cursor:pointer;
+  }
+  .kids-btn.is-active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .kids-zulage-result{
+    margin-top:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:14px 18px;text-align:left;
+  }
+  .kids-zulage-result > div{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:.86rem;color:var(--ink-soft);}
+  .kids-zulage-result b{font-family:"IBM Plex Mono",monospace;color:var(--ink);font-weight:700;}
+  .kids-zulage-total{border-top:1px solid var(--border);margin-top:6px;padding-top:10px!important;}
+  .kids-zulage-total span{font-weight:700;color:var(--ink);}
+  .kids-zulage-total b{color:var(--accent-strong);font-size:1.1rem;}
   .milestones{margin-top:36px;padding-top:32px;border-top:1px solid var(--border);}
   .milestones h3{font-size:clamp(1.1rem,2.1vw,1.4rem);margin-top:6px;}
   .milestones-lead{color:var(--ink-soft);margin-top:10px;font-size:.94rem;}
@@ -430,6 +476,7 @@
       <li><a href="#fuer-wen">Für wen</a></li>
       <li><a href="#aktuelles">Aktuelles</a></li>
       <li><a href="#rechner">Euer Kind in Zahlen</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
@@ -557,6 +604,54 @@
   </section>
 
   <section class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Die Herausforderung</p>
+      <h2>Die gesetzliche Rente allein wird für die meisten nicht reichen</h2>
+      <p>Kein Alarmismus, sondern die nackten Zahlen der Deutschen Rentenversicherung — und was sie für euren Lebensstandard im Alter bedeuten.</p>
+    </div>
+    <div class="pension-problem-stats">
+      <div class="pension-stat">
+        <b>48 %</b>
+        <span>Rentenniveau aktuell — im Jahr 2000 waren es noch 52,9 %</span>
+      </div>
+      <div class="pension-stat pension-stat-gender">
+        <div class="gender-pair">
+          <div><b>994 €</b><span class="gender-label">Frauen</span></div>
+          <div><b>1.449 €</b><span class="gender-label">Männer</span></div>
+        </div>
+        <span>Durchschnittliche Altersrente im Monat, Kranken- &amp; Pflegeversicherung bereits abgezogen (Stand Ende 2025)</span>
+      </div>
+      <div class="pension-stat">
+        <b>70 / 100</b>
+        <span>Rentner je 100 Beitragszahler bis 2045 erwartet (2016 waren es 48) — Modellrechnung der Deutschen Rentenversicherung</span>
+      </div>
+    </div>
+
+    <div class="pension-breakdown">
+      <p class="pension-breakdown-title">So viel bleibt wirklich übrig — Beispielrechnung</p>
+      <div class="pension-breakdown-grid">
+        <div class="pension-breakdown-col">
+          <span class="pension-breakdown-label">Frauen</span>
+          <div class="pension-breakdown-row"><span>Bruttorente</span><b>1.134 €</b></div>
+          <div class="pension-breakdown-row is-minus"><span>− Krankenversicherung (8,75 %)</span><b>−99 €</b></div>
+          <div class="pension-breakdown-row is-minus"><span>− Pflegeversicherung (3,6 %)</span><b>−41 €</b></div>
+          <div class="pension-breakdown-row is-total"><span>Bleibt übrig</span><b>994 €</b></div>
+        </div>
+        <div class="pension-breakdown-col">
+          <span class="pension-breakdown-label">Männer</span>
+          <div class="pension-breakdown-row"><span>Bruttorente</span><b>1.653 €</b></div>
+          <div class="pension-breakdown-row is-minus"><span>− Krankenversicherung (8,75 %)</span><b>−145 €</b></div>
+          <div class="pension-breakdown-row is-minus"><span>− Pflegeversicherung (3,6 %)</span><b>−60 €</b></div>
+          <div class="pension-breakdown-row is-total"><span>Bleibt übrig</span><b>1.449 €</b></div>
+        </div>
+      </div>
+      <p class="calc-note">Beitragssätze für Rentner: KV 8,75 %, PV 3,6 % — komplett ohne Arbeitgeberanteil. <a href="https://www.finanztip.de/gkv/krankenversicherung-der-rentner/" target="_blank" rel="noopener">Quelle: finanztip.de ↗</a></p>
+    </div>
+
+    <p class="calc-note pension-hard-fact">Zum Vergleich: Der steuerliche Grundfreibetrag liegt 2026 bei 12.348 € im Jahr. Die durchschnittliche Frauenrente liegt mit 11.927 € im Jahr <b>darunter</b> — mehr als die Hälfte aller Altersrentnerinnen in Deutschland bekommt also so wenig Rente, dass davon nicht mal Einkommensteuer fällig würde. <a href="https://renten.net/rente/durchschnittsrente/" target="_blank" rel="noopener">Quelle: renten.net ↗</a></p>
+  </section>
+
+  <section class="wrap reveal">
     <div class="calc" id="rechner">
       <div class="calc-grid">
         <div class="calc-head">
@@ -643,13 +738,30 @@
 
           <div class="calc-cta">
             <p>Ihr wollt wissen, was das konkret für euch bedeutet?</p>
-            <a class="btn btn-accent" href="#kontakt">Jetzt euren Sparplan besprechen</a>
+            <a class="btn btn-accent" href="#kontakt" onclick="var c=document.getElementById('interesseKindervorsorge'); if(c){c.checked=true;}">Jetzt euren Kind-Sparplan berechnen</a>
           </div>
 
           <div class="parent-hint">
             <p class="parent-hint-title">Übrigens: Auch für euch als Eltern gibt es Förderung</p>
-            <p>Beim eigenen Altersvorsorgedepot zahlt der Staat 50 % Zuschuss auf die ersten 360 €/Jahr Sparleistung, danach 25 % — bis zu 540 € Förderung pro Jahr. Wie viel das für euch konkret ausmacht, rechnen wir gern im persönlichen Gespräch durch.</p>
-            <a class="btn btn-ghost" href="#kontakt">Auch meine Förderung besprechen</a>
+            <p>Beim eigenen Altersvorsorgedepot zahlt der Staat 50 % Zuschuss auf die ersten 360 €/Jahr Sparleistung, danach 25 % — bis zu 540 € Grundzulage pro Jahr. Für jedes Kind kommt zusätzlich eine Kinderzulage von bis zu 300 €/Jahr obendrauf.</p>
+
+            <div class="kids-zulage">
+              <span class="kids-zulage-label">Anzahl Kinder:</span>
+              <div class="kids-zulage-options" role="group" aria-label="Anzahl Kinder">
+                <button type="button" class="kids-btn is-active" data-kids="1">1</button>
+                <button type="button" class="kids-btn" data-kids="2">2</button>
+                <button type="button" class="kids-btn" data-kids="3">3</button>
+              </div>
+            </div>
+
+            <div class="kids-zulage-result">
+              <div><span>Grundzulage</span><b>540 €</b></div>
+              <div><span>+ Kinderzulage (<span id="kidsCount">1</span> <span id="kidsWord">Kind</span> × 300 €)</span><b id="kidsZulageAmount">300 €</b></div>
+              <div class="kids-zulage-total"><span>Gesamtförderung pro Jahr</span><b id="kidsZulageTotal">840 €</b></div>
+            </div>
+            <p class="calc-note">Bei vollständiger Ausschöpfung (mind. 300 €/Jahr Eigenbeitrag je Kind). Wie viel das für euch konkret ausmacht, rechnen wir gern im persönlichen Gespräch durch. <a href="https://www.bundesfinanzministerium.de/Content/DE/FAQ/reform-der-privaten-altersvorsorge.html" target="_blank" rel="noopener">Quelle: bundesfinanzministerium.de ↗</a></p>
+
+            <a class="btn btn-ghost" href="#kontakt" onclick="var c=document.getElementById('interesseAltersvorsorge'); if(c){c.checked=true;}">Auch meine Förderung besprechen</a>
           </div>
         </div>
       </div>
@@ -665,17 +777,17 @@
       <div class="step">
         <p class="step-num">Schritt 01</p>
         <h3>Analyse — wo steht ihr wirklich?</h3>
-        <p>Eure Wünsche, Ziele und was heute schon da ist — ohne Wertung.</p>
+        <p>In einem rund 45-minütigen, kostenlosen Erstgespräch schauen wir gemeinsam auf eure Situation: Welche Verträge habt ihr schon? Welche Fördermöglichkeiten nutzt ihr noch nicht? Und was ist euch als Familie wirklich wichtig? Ohne Verkaufsdruck, ohne Fachchinesisch — einfach ehrlich.</p>
       </div>
       <div class="step">
         <p class="step-num">Schritt 02</p>
         <h3>Plan — euer Weg wird sichtbar</h3>
-        <p>Individuelle Strategie, verständlich erklärt — ihr entscheidet.</p>
+        <p>Ihr bekommt einen konkreten, verständlich erklärten Fahrplan mit klaren nächsten Schritten — keine Lösung von der Stange, sondern zugeschnitten auf eure Familie, euer Budget und eure Ziele. Ihr entscheidet in eurem Tempo, was davon ihr umsetzen wollt.</p>
       </div>
       <div class="step">
         <p class="step-num">Schritt 03</p>
         <h3>Umsetzung — dauerhaft an eurer Seite</h3>
-        <p>Schritt für Schritt, durch alle Familienphasen.</p>
+        <p>Von der Umsetzung bis zur regelmäßigen Überprüfung bleibe ich euer fester Ansprechpartner, durch alle Familienphasen hindurch. Ändert sich eure Situation — neues Kind, neuer Job, eigenes Zuhause — passen wir gemeinsam an, was angepasst werden muss.</p>
       </div>
     </div>
   </section>
@@ -768,18 +880,8 @@
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p>„Besonders hilfreich war, dass nicht nur die Finanzierung der Immobilie betrachtet wurde. Auch die Absicherung unserer Familie und unsere langfristige Planung wurden mitgedacht. Genau das hatten wir gesucht."</p>
-        <div class="testi-byline"><b>Tobias M.</b><br>Familienvater</div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
         <p>„Wir hatten Angst, dass eine Beratung direkt in einem Verkaufsgespräch endet. Stattdessen wurden erst einmal unsere Wünsche und unsere Situation angeschaut. Danach konnten wir viel besser einschätzen, was für unsere Familie möglich ist."</p>
         <div class="testi-byline"><b>Laura S.</b><br>Junge Familie</div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>„Unser Wunsch war klar: mehr Platz für die Kinder und irgendwann das eigene Zuhause. Uns fehlte nur ein realistischer Weg dorthin. Jetzt wissen wir, worauf wir achten müssen und wie wir das Ganze angehen können."</p>
-        <div class="testi-byline"><b>Sophie &amp; Marc B.</b><br>Familie mit zwei Kindern</div>
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
@@ -857,8 +959,8 @@
               <legend>Interessiert an</legend>
               <div class="check-grid">
                 <label class="check-item"><input type="checkbox" name="thema" value="Familienschutz"> Familienschutz (Versicherung)</label>
-                <label class="check-item"><input type="checkbox" name="thema" value="Kindervorsorge"> Kindervorsorge</label>
-                <label class="check-item"><input type="checkbox" name="thema" value="Bausparen"> Bausparen</label>
+                <label class="check-item"><input type="checkbox" id="interesseKindervorsorge" name="thema" value="Kindervorsorgedepot"> Kindervorsorgedepot</label>
+                <label class="check-item"><input type="checkbox" id="interesseAltersvorsorge" name="thema" value="Altersvorsorgedepot"> Altersvorsorgedepot</label>
                 <label class="check-item"><input type="checkbox" name="thema" value="Investment"> Investment</label>
                 <label class="check-item"><input type="checkbox" name="thema" value="Immobilienfinanzierung"> Immobilienfinanzierung</label>
               </div>
@@ -953,6 +1055,7 @@
           <a href="#fuer-wen">Für wen</a>
           <a href="#aktuelles">Aktuelles</a>
           <a href="#rechner">Euer Kind in Zahlen</a>
+          <a href="services.html">Services</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt">Termin anfragen</a>
         </div>
@@ -1147,6 +1250,27 @@
 
   updateCalc();
   updateInvest();
+
+  // Kinderzulage-Rechner (Altersvorsorgedepot): Grundzulage 540 € + bis zu 300 €/Kind
+  const kidsButtons = document.querySelectorAll('.kids-btn');
+  const kidsCountEl = document.getElementById('kidsCount');
+  const kidsWordEl = document.getElementById('kidsWord');
+  const kidsZulageAmountEl = document.getElementById('kidsZulageAmount');
+  const kidsZulageTotalEl = document.getElementById('kidsZulageTotal');
+  const GRUNDZULAGE = 540;
+  const KINDERZULAGE_PRO_KIND = 300;
+  kidsButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      kidsButtons.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      const kids = parseInt(btn.dataset.kids, 10);
+      const kidsZulage = kids * KINDERZULAGE_PRO_KIND;
+      kidsCountEl.textContent = kids;
+      kidsWordEl.textContent = kids === 1 ? 'Kind' : 'Kinder';
+      kidsZulageAmountEl.textContent = fmtEUR(kidsZulage);
+      kidsZulageTotalEl.textContent = fmtEUR(GRUNDZULAGE + kidsZulage);
+    });
+  });
 
   // Formularübertragung läuft über Formspree (https://formspree.io/f/maenydvd)
   const form = document.getElementById('leadForm');

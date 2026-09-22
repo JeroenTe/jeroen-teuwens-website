@@ -1,0 +1,573 @@
+﻿<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Services | Jeroen Teuwens</title>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1461914709118327');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1461914709118327&ev=PageView&noscript=1"/></noscript>
+<style>
+  :root{
+    --bg:#FBF6EE;
+    --surface:#FFFFFF;
+    --surface-2:#F6E8D6;
+    --ink:#221D17;
+    --ink-soft:#6A5F51;
+    --accent:#E35F1E;
+    --accent-strong:#C14C12;
+    --accent-soft:#FBE0C6;
+    --border:#EAD9C0;
+    --success-bg:#FBE9D8;
+    --success-ink:#8A3A0E;
+    --shadow: 0 1px 2px rgba(34,29,23,.07), 0 12px 30px -16px rgba(34,29,23,.25);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B1611; --surface:#241D16; --surface-2:#2C2318;
+      --ink:#F4ECDF; --ink-soft:#C6B49A;
+      --accent:#F17A3D; --accent-strong:#F79C63; --accent-soft:#3B2513;
+      --border:#3B2E1F;
+      --success-bg:#2E1D0C; --success-ink:#F4B57D;
+      --shadow: 0 1px 2px rgba(0,0,0,.45), 0 12px 30px -16px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B1611; --surface:#241D16; --surface-2:#2C2318;
+    --ink:#F4ECDF; --ink-soft:#C6B49A;
+    --accent:#F17A3D; --accent-strong:#F79C63; --accent-soft:#3B2513;
+    --border:#3B2E1F;
+    --success-bg:#2E1D0C; --success-ink:#F4B57D;
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 12px 30px -16px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Work Sans","Public Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.55; scroll-behavior:smooth; overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:"Bricolage Grotesque","Work Sans",sans-serif;
+    font-weight:700; line-height:1.06; text-wrap:balance; color:var(--ink); margin:0;
+    letter-spacing:-.01em;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.72rem;
+    letter-spacing:.11em; text-transform:uppercase; color:var(--accent-strong); font-weight:600;
+  }
+  a{color:var(--accent-strong);}
+  .wrap{max-width:1240px;margin-inline:auto;padding-inline:20px;position:relative;}
+  section{padding-block:64px;}
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+  ::selection{background:var(--accent-soft);}
+  .tabular{font-variant-numeric:tabular-nums;}
+
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease;}
+  .js .reveal.is-visible{opacity:1;transform:none;}
+  .js .reveal-stagger > *{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease;}
+  .js .reveal-stagger.is-visible > *{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .js .reveal, .js .reveal-stagger > *{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+
+  header.site{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:40;
+    background:color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:14px;gap:16px;}
+  .brand{display:flex;align-items:center;gap:9px;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.2;}
+  .brand-name{font-size:1.05rem;}
+  .brand-tag{font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.93rem;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.is-active{color:var(--accent-strong);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-phone{display:flex;align-items:center;gap:7px;color:var(--ink-soft);text-decoration:none;font-size:.92rem;white-space:nowrap;}
+  @media (max-width:780px){ .nav-links, .nav-phone{display:none;} }
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 24px;border-radius:100px;font-weight:700;font-size:.95rem;
+    text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;
+    transition:transform .16s ease, box-shadow .2s ease, background .16s ease;
+  }
+  .btn-accent{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px color-mix(in srgb, var(--accent) 65%, transparent);}
+  .btn-accent:hover{background:var(--accent-strong);transform:translateY(-2px) scale(1.01);box-shadow:0 16px 30px -12px color-mix(in srgb, var(--accent) 70%, transparent);}
+  .btn-accent:active{transform:translateY(0) scale(1);}
+  .btn-ghost{background:transparent;border-color:var(--border);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong);}
+  .btn-block{width:100%;border-radius:12px;}
+  .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible{
+    outline:2px solid var(--accent-strong); outline-offset:2px;
+  }
+
+  .hero{padding-block:56px 30px;position:relative;}
+  .glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:0;pointer-events:none;}
+  .glow-1{width:420px;height:420px;background:var(--accent-soft);top:-160px;right:-140px;}
+  .glow-2{width:260px;height:260px;background:var(--surface-2);bottom:-80px;left:-100px;}
+  @media (max-width:700px){ .glow{display:none;} }
+  .hero-inner{position:relative;z-index:1;max-width:760px;}
+  .hero h1{font-size:clamp(2rem,4.6vw,3rem);margin-block:16px 18px;}
+  .hero p.lead{color:var(--ink-soft);font-size:1.05rem;max-width:56ch;}
+
+  .section-head{max-width:62ch;margin-bottom:36px;}
+  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:8px;}
+  .section-head p{color:var(--ink-soft);margin-top:10px;}
+
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;}
+  @media (max-width:560px){ .service-grid{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;
+    display:flex;flex-direction:column;gap:10px;text-align:left;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .service-card-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent-strong);
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .service-card h3{font-size:1.1rem;margin-top:6px;}
+  .service-card p{color:var(--ink-soft);font-size:.9rem;flex:1;margin:0;}
+  .service-card .btn{margin-top:6px;align-self:flex-start;}
+
+  .widerruf-notice{
+    background:var(--accent-soft);border-radius:14px;padding:18px 22px;margin-bottom:24px;
+    font-size:.88rem;color:var(--ink);line-height:1.55;
+  }
+  .widerruf-notice b{color:var(--accent-strong);}
+
+  form.lead-form{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:var(--shadow);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:520px){ .field-row{grid-template-columns:1fr;} }
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .field label{font-size:.86rem;font-weight:700;color:var(--ink);}
+  .field input, .field textarea{
+    font:inherit;padding:11px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .field input:focus, .field textarea:focus{outline:2px solid var(--accent-strong);outline-offset:1px;}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:.83rem;color:var(--ink-soft);margin-bottom:20px;}
+  .consent input{margin-top:3px;width:16px;height:16px;flex:none;accent-color:var(--accent-strong);}
+  .form-note{font-size:.78rem;color:var(--ink-soft);margin-top:12px;text-align:center;}
+  .success-panel{background:var(--success-bg);color:var(--success-ink);border-radius:16px;padding:32px;text-align:center;}
+  .success-panel h3{color:var(--success-ink);font-size:1.2rem;}
+  .success-panel p{margin-top:8px;font-size:.94rem;}
+
+  .contact-direct-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+  @media (max-width:420px){ .contact-direct-grid{grid-template-columns:1fr;} }
+  .contact-direct-link{
+    display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);
+    border-radius:12px;padding:10px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:.87rem;
+    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .contact-direct-link:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .contact-direct-icon{
+    width:30px;height:30px;border-radius:50%;flex:none;
+    background:var(--accent-soft);color:var(--accent-strong);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .contact-direct-value{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+  footer{border-top:1px solid var(--border);padding-block:44px 34px;}
+  .footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:30px;}
+  .footer-brand p{color:var(--ink-soft);max-width:34ch;margin-top:10px;font-size:.9rem;}
+  .footer-cols{display:flex;gap:56px;flex-wrap:wrap;}
+  .footer-col h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);margin-bottom:12px;}
+  .footer-col a{display:block;color:var(--ink);text-decoration:none;font-size:.92rem;margin-bottom:8px;}
+  .footer-legal{border-top:1px solid var(--border);padding-top:22px;margin-top:8px;color:var(--ink-soft);font-size:.78rem;line-height:1.7;}
+  .footer-legal b{color:var(--ink);}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html#top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--accent-strong)"><path d="M12 21s-7-4.5-9.3-9C1 8.4 2.6 5 6.1 5c2 0 3.4 1.1 3.9 2.4C10.5 6.1 11.9 5 13.9 5c3.5 0 5.1 3.4 3.4 7-2.3 4.5-5.3 9-5.3 9Z"/></svg>
+      <span class="brand-text"><span class="brand-name">Jeroen Teuwens</span><span class="brand-tag">Familien-Finanzberater</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#ueber-mich">Über mich</a></li>
+      <li><a href="index.html#fuer-wen">Für wen</a></li>
+      <li><a href="index.html#aktuelles">Aktuelles</a></li>
+      <li><a href="index.html#rechner">Euer Kind in Zahlen</a></li>
+      <li><a href="services.html" class="is-active">Services</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="https://wa.me/491638147627?text=Hallo%20Jeroen%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20kostenloses%20Erstgespr%C3%A4ch." target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z"/><path d="M8.5 8.8c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.1.1-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.3-.2.6-.1.2.1 1.5.7 1.8.8.3.1.4.2.5.3.1.2.1.9-.2 1.6-.3.7-1.6 1.4-2.2 1.4-.6.1-1.1.1-3.7-1.1-3.1-1.5-5-4.6-5.2-4.9-.2-.3-1.2-1.7-1.2-3.2 0-1.5.8-2.2 1-2.5Z" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="nav-phone" href="https://www.instagram.com/jeroen.teuwens" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a class="nav-phone" href="tel:+491638147627">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9 3 3.4 3.4 3 4 3h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"/></svg>
+        0163 8147627
+      </a>
+      <a class="btn btn-accent" href="index.html#kontakt">Termin anfragen</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap reveal">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Services</p>
+      <h1>Schnelle Hilfe für bestehende Kunden</h1>
+      <p class="lead">Ihr seid schon Kunde bei mir? Hier findet ihr die wichtigsten Anlaufstellen auf einen Blick — ohne erst eine E-Mail schreiben zu müssen.</p>
+    </div>
+  </section>
+
+  <section class="wrap reveal">
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.8 4.1-5.8 7-5.8s5.8 2 7 5.8"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+        </div>
+        <h3>Kundenportal</h3>
+        <p>Verträge, Dokumente und Nachrichten jederzeit online einsehen — mit eurem Zugang zum Kundenportal.</p>
+        <a class="btn btn-accent" href="https://kundenportal.dvag/startseite" target="_blank" rel="noopener">Zum Kundenportal ↗</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6.5V11c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6.5L12 3Z"/><path d="M9.5 12.2l1.8 1.8 3.2-3.6"/></svg>
+        </div>
+        <h3>Schaden einreichen</h3>
+        <p>Schnell und unkompliziert einen Schaden direkt bei der Generali melden.</p>
+        <a class="btn btn-accent" href="https://www.generali.de/service-kontakt/schaden-melden" target="_blank" rel="noopener">Zur Schadenmeldung ↗</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9L20 8.5V18.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M14 4v4.5h4.5"/><path d="M8 13h8M8 16.5h5.5"/></svg>
+        </div>
+        <h3>Änderungen mitteilen</h3>
+        <p>Neue Adresse, neue Bankverbindung oder ein anderes Update? Kurz eintragen, ich kümmere mich darum.</p>
+        <a class="btn btn-ghost" href="#aenderung">Formular ausfüllen ↓</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5A5.5 5.5 0 0 1 20 14.5v0A5.5 5.5 0 0 1 14.5 20H11"/></svg>
+        </div>
+        <h3>Vertrag widerrufen</h3>
+        <p>Innerhalb der Widerrufsfrist? Meldet euren Widerruf hier — ich leite ihn umgehend weiter.</p>
+        <a class="btn btn-ghost" href="#widerruf">Formular ausfüllen ↓</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z"/><path d="M12 8v5"/><circle cx="12" cy="16.2" r=".2" fill="currentColor"/></svg>
+        </div>
+        <h3>Notfallnummern</h3>
+        <p>Pannenhilfe, Schadenmeldung, Kartensperrung &amp; mehr — alle wichtigen Nummern auf einen Blick.</p>
+        <a class="btn btn-ghost" href="https://www.dvag.de/jeroen.teuwens/notfallhilfe.html" target="_blank" rel="noopener">Nummern ansehen ↗</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.05-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        </div>
+        <h3>Allgemeine Frage?</h3>
+        <p>Für alles andere erreicht ihr mich jederzeit direkt — telefonisch, per WhatsApp oder E-Mail.</p>
+        <a class="btn btn-ghost" href="index.html#kontakt">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap reveal" id="aenderung">
+    <div class="section-head">
+      <p class="eyebrow">Änderungsformular</p>
+      <h2>Was hat sich bei euch geändert?</h2>
+      <p>Kurz eintragen — ich melde mich, sobald die Änderung bearbeitet ist. Für dringende Schadenfälle nutzt bitte die Generali-Schadenmeldung oben.</p>
+    </div>
+
+    <form class="lead-form" id="changeForm" action="https://formspree.io/f/xaenopky" method="POST" novalidate>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-vorname">Vorname*</label>
+          <input id="cf-vorname" name="vorname" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="cf-nachname">Nachname*</label>
+          <input id="cf-nachname" name="nachname" type="text" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-telefon">Telefon*</label>
+          <input id="cf-telefon" name="telefon" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">E-Mail*</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-aenderung">Was hat sich geändert?*</label>
+        <textarea id="cf-aenderung" name="aenderung" placeholder="z. B. neue Adresse, neue Bankverbindung, neuer Nachname, ..." required></textarea>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="cf-consent" name="consent" required>
+        <span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert und genutzt werden. Weitere Informationen in der <a href="index.html#datenschutz">Datenschutzerklärung</a>. Ein Widerruf ist jederzeit möglich.*</span>
+      </label>
+
+      <button type="submit" class="btn btn-accent btn-block">Änderung mitteilen</button>
+      <p class="form-note">*Pflichtfeld.</p>
+    </form>
+
+    <div class="success-panel" id="changeSuccessPanel" hidden>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.3"/><path d="M8.3 12.3 10.8 14.8 15.8 9.3"/></svg>
+      <h3>Danke!</h3>
+      <p>Eure Änderung ist bei mir eingegangen. Ich melde mich, sobald sie bearbeitet ist.</p>
+    </div>
+  </section>
+
+  <section class="wrap reveal" id="widerruf">
+    <div class="section-head">
+      <p class="eyebrow">Widerrufsformular</p>
+      <h2>Vertrag widerrufen</h2>
+      <p>Füllt das Formular aus, wenn ihr einen Vertrag fristgerecht widerrufen möchtet. Ich leite eure Widerrufserklärung umgehend an die jeweilige Gesellschaft weiter.</p>
+    </div>
+
+    <div class="widerruf-notice">
+      <b>Wichtig, wenn die Frist knapp wird:</b> Die gesetzliche Widerrufsfrist läuft ab Vertragsabschluss bzw. Erhalt der Vertragsunterlagen (meist 14, bei manchen Lebens- und Rentenversicherungen 30 Tage). Damit euer Widerruf nachweislich fristgerecht ankommt, empfehlen wir, ihn zusätzlich <b>direkt und schriftlich</b> an die Gesellschaft zu senden (z. B. per Post oder Fax) — dieses Formular hilft mir zusätzlich, den Vorgang für euch schnell zu bearbeiten.
+    </div>
+
+    <form class="lead-form" id="withdrawForm" action="https://formspree.io/f/mnpndgrk" method="POST" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="wf-vorname">Vorname*</label>
+          <input id="wf-vorname" name="vorname" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="wf-nachname">Nachname*</label>
+          <input id="wf-nachname" name="nachname" type="text" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="wf-strasse">Straße &amp; Hausnummer*</label>
+          <input id="wf-strasse" name="strasse" type="text" autocomplete="street-address" required>
+        </div>
+        <div class="field">
+          <label for="wf-plzort">PLZ &amp; Ort*</label>
+          <input id="wf-plzort" name="plz_ort" type="text" autocomplete="postal-code" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="wf-telefon">Telefon</label>
+          <input id="wf-telefon" name="telefon" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="wf-email">E-Mail*</label>
+          <input id="wf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="wf-gesellschaft">Gesellschaft / Anbieter*</label>
+          <input id="wf-gesellschaft" name="gesellschaft" type="text" placeholder="z. B. Generali" required>
+        </div>
+        <div class="field">
+          <label for="wf-vertragsnummer">Vertrags- / Versicherungsscheinnummer*</label>
+          <input id="wf-vertragsnummer" name="vertragsnummer" type="text" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="wf-vertragsart">Vertragsart</label>
+          <input id="wf-vertragsart" name="vertragsart" type="text" placeholder="z. B. Lebensversicherung, Bausparvertrag">
+        </div>
+        <div class="field">
+          <label for="wf-abschlussdatum">Datum des Vertragsabschlusses</label>
+          <input id="wf-abschlussdatum" name="abschlussdatum" type="date">
+        </div>
+      </div>
+      <div class="field">
+        <label for="wf-nachricht">Nachricht (optional)</label>
+        <textarea id="wf-nachricht" name="nachricht" placeholder="Weitere Angaben zu eurem Widerruf"></textarea>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="wf-consent" name="consent" required>
+        <span>Hiermit widerrufe ich den oben genannten Vertrag und stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Weitere Informationen in der <a href="index.html#datenschutz">Datenschutzerklärung</a>.*</span>
+      </label>
+
+      <button type="submit" class="btn btn-accent btn-block">Widerruf mitteilen</button>
+      <p class="form-note">*Pflichtfeld.</p>
+    </form>
+
+    <div class="success-panel" id="withdrawSuccessPanel" hidden>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.3"/><path d="M8.3 12.3 10.8 14.8 15.8 9.3"/></svg>
+      <h3>Danke!</h3>
+      <p>Euer Widerruf ist bei mir eingegangen. Ich kümmere mich umgehend um die Weiterleitung.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html#top">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--accent-strong)"><path d="M12 21s-7-4.5-9.3-9C1 8.4 2.6 5 6.1 5c2 0 3.4 1.1 3.9 2.4C10.5 6.1 11.9 5 13.9 5c3.5 0 5.1 3.4 3.4 7-2.3 4.5-5.3 9-5.3 9Z"/></svg>
+          <span class="brand-text"><span class="brand-name">Jeroen Teuwens</span><span class="brand-tag">Familien-Finanzberater</span></span>
+        </a>
+        <p>Unabhängige Finanzberatung für Familien — persönlich begleitet.</p>
+        <div class="contact-direct-grid" style="max-width:340px;">
+          <a class="contact-direct-link" href="tel:+491638147627">
+            <span class="contact-direct-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9 3 3.4 3.4 3 4 3h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"/></svg></span>
+            <span class="contact-direct-value">0163 8147627</span>
+          </a>
+          <a class="contact-direct-link" href="mailto:jeroen.teuwens@dvag.de">
+            <span class="contact-direct-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 6.5 8 6.5 8-6.5"/></svg></span>
+            <span class="contact-direct-value">E-Mail</span>
+          </a>
+          <a class="contact-direct-link" href="https://wa.me/491638147627?text=Hallo%20Jeroen%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20kostenloses%20Erstgespr%C3%A4ch." target="_blank" rel="noopener">
+            <span class="contact-direct-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z"/><path d="M8.5 8.8c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.1.1-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.3-.2.6-.1.2.1 1.5.7 1.8.8.3.1.4.2.5.3.1.2.1.9-.2 1.6-.3.7-1.6 1.4-2.2 1.4-.6.1-1.1.1-3.7-1.1-3.1-1.5-5-4.6-5.2-4.9-.2-.3-1.2-1.7-1.2-3.2 0-1.5.8-2.2 1-2.5Z" fill="currentColor" stroke="none"/></svg></span>
+            <span class="contact-direct-value">WhatsApp</span>
+          </a>
+          <a class="contact-direct-link" href="https://www.instagram.com/jeroen.teuwens" target="_blank" rel="noopener">
+            <span class="contact-direct-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span>
+            <span class="contact-direct-value">Instagram</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Seite</h4>
+          <a href="index.html#ueber-mich">Über mich</a>
+          <a href="index.html#fuer-wen">Für wen</a>
+          <a href="index.html#aktuelles">Aktuelles</a>
+          <a href="index.html#rechner">Euer Kind in Zahlen</a>
+          <a href="services.html">Services</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#kontakt">Termin anfragen</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <a href="index.html#impressum">Impressum</a>
+          <a href="index.html#datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <b>Impressum:</b><br>
+      Jeroen Teuwens, Finanzberater · Regionalgeschäftsstelle für Deutsche Vermögensberatung<br>
+      Obergasse 12 · 65510 Idstein<br>
+      Telefon: 0163 8147627 · E-Mail: jeroen.teuwens@dvag.de · <a href="https://www.dvag.de/jeroen.teuwens">www.dvag.de/jeroen.teuwens</a><br><br>
+      Im Versicherungsbereich als gebundener Vermittler gemäß § 34d Abs. 7 GewO auf Provisionsbasis ausschließlich vermittelnd und beratend tätig für die Generali Deutschland Lebensversicherung, Generali Deutschland Versicherung, Generali Deutschland Krankenversicherung, Generali Pensionskasse, ADVOCARD Rechtsschutzversicherung. Darüber hinaus können in Einzelfällen geldwerte Vorteile in Form von Sachleistungen anfallen (z. B. Schulungen sowie Einladungen für die Teilnahme an kulturellen und gesellschaftlichen Veranstaltungen, Informationsmaterial, Aufmerksamkeiten).<br><br>
+      Registerstelle für § 34d GewO: Deutsche Industrie- und Handelskammer (DIHK), Breite Straße 29, 10178 Berlin, Telefon 0180 600585-0 (20 Cent/Anruf), <a href="https://www.vermittlerregister.info">www.vermittlerregister.info</a><br>
+      Registernummer gemäß GewO: § 34d D-KELW-LG9V4-01<br><br>
+      Schlichtungsstellen: Verein Versicherungsombudsmann e. V., Postfach 080632, 10006 Berlin · Ombudsmann Private Kranken- und Pflegeversicherung, Postfach 060222, 10052 Berlin<br><br>
+      <b>Datenschutz:</b><br>
+      Informationen zur Verarbeitung eurer personenbezogenen Daten findet ihr unter <a href="https://www.datenschutz.dvag">www.datenschutz.dvag</a>. Die Angaben aus den Formularen auf dieser Seite werden über den Dienst Formspree (Formspree, Inc., USA) technisch verarbeitet und per E-Mail an mich weitergeleitet. Die Datenschutzerklärung von Formspree findet ihr unter <a href="https://formspree.io/legal/privacy-policy">formspree.io/legal/privacy-policy</a>.<br><br>
+      © <span id="year"></span> Jeroen Teuwens · Deutsche Vermögensberatung
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.documentElement.classList.add('js');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if('IntersectionObserver' in window && !reduceMotion){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('is-visible'));
+  }
+
+  function setupForm(formId, successPanelId, fieldLabels){
+    const form = document.getElementById(formId);
+    if(!form) return;
+    const successPanel = document.getElementById(successPanelId);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtnDefaultText = submitBtn.textContent;
+
+    let formError = document.getElementById(formId + 'Error');
+    if(!formError){
+      formError = document.createElement('p');
+      formError.id = formId + 'Error';
+      formError.hidden = true;
+      formError.style.cssText = 'color:var(--accent-strong);font-size:.9rem;font-weight:600;margin-top:12px;text-align:center;';
+      form.appendChild(formError);
+    }
+
+    function showError(text){
+      formError.textContent = text;
+      formError.hidden = false;
+      formError.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+
+      const invalidField = Array.from(form.elements).find(el => el.willValidate && !el.checkValidity());
+      if(invalidField){
+        const label = fieldLabels[invalidField.name] || 'ein Pflichtfeld';
+        showError('Bitte prüfe: „' + label + '" fehlt oder ist ungültig.');
+        invalidField.focus();
+        try{ form.reportValidity(); } catch(_){}
+        return;
+      }
+
+      formError.hidden = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet …';
+      try{
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(!response.ok){ throw new Error('Formspree request failed: ' + response.status); }
+        if(typeof fbq === 'function'){ fbq('track', 'Lead'); }
+        form.hidden = true;
+        successPanel.hidden = false;
+        successPanel.scrollIntoView({behavior:'smooth', block:'center'});
+      } catch(err){
+        showError('Da ist etwas schiefgelaufen. Bitte versucht es noch einmal oder ruft direkt an: 0163 8147627.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnDefaultText;
+      }
+    });
+  }
+
+  setupForm('changeForm', 'changeSuccessPanel', { vorname:'Vorname', nachname:'Nachname', telefon:'Telefon', email:'E-Mail-Adresse', aenderung:'Was hat sich geändert', consent:'Zustimmung zur Datenverarbeitung' });
+  setupForm('withdrawForm', 'withdrawSuccessPanel', { vorname:'Vorname', nachname:'Nachname', strasse:'Straße & Hausnummer', plz_ort:'PLZ & Ort', email:'E-Mail-Adresse', gesellschaft:'Gesellschaft / Anbieter', vertragsnummer:'Vertrags- / Versicherungsscheinnummer', consent:'Zustimmung zum Widerruf' });
+</script>
+
+</body></html>
